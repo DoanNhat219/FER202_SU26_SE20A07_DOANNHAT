@@ -1,0 +1,159 @@
+/* =========================
+   REGISTER PAGE STYLING
+========================= */
+.registration-container {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - 70px); /* Trừ hao phần Navbar nếu có */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Background Effects */
+.registration-container::before,
+.registration-container::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: floating 7s ease-in-out infinite;
+}
+
+.registration-container::before {
+  width: 320px;
+  height: 320px;
+  top: -120px;
+  left: -120px;
+}
+
+.registration-container::after {
+  width: 220px;
+  height: 220px;
+  bottom: -80px;
+  right: -80px;
+  animation-duration: 9s;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(30px); }
+}
+
+/* =========================
+   CARD (Đã fix lỗi bóp nhỏ)
+========================= */
+.registration-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  min-width: 350px; /* Chống bị bóp nghẹt trên màn hình nhỏ */
+  flex-shrink: 0;   /* Yêu cầu Flexbox không được ép nhỏ form này */
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  animation: cardShow 0.6s ease;
+}
+
+.registration-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  border-radius: 20px 20px 0 0;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+@keyframes cardShow {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tiêu đề */
+.registration-card h2 {
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  color: #2d3748;
+}
+
+/* Form Group & Label */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left; /* Đảm bảo chữ canh trái */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #4a5568;
+}
+
+/* Input */
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f7fafc;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* Bắt buộc để padding không làm phình thẻ */
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.12);
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.button-group .btn {
+  flex: 1;
+  padding: 14px 0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.button-group .btn-primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  box-shadow: 0 6px 18px rgba(102, 126, 234, 0.35);
+}
+
+.button-group .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+}
+
+.button-group .btn-secondary {
+  color: #4a5568;
+  background: #edf2f7;
+}
+
+.button-group .btn-secondary:hover {
+  background: #e2e8f0;
+  transform: translateY(-3px);
+}
